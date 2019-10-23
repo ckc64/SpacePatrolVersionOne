@@ -1,58 +1,69 @@
 
 import 'dart:ui';
+import 'package:flame/sprite.dart';
 import 'package:spacepatrolv1/spacepatrolgame.dart';
-import 'package:flutter/gestures.dart';
 
 class SpaceRocket{
 
   Rect spaceRect;
   Paint spacePaint;
   final SpacePatrolGame game;
-  bool isTap = false,isDrag = false,
-  isDragLeft=false,isDragRight=false;
-  double lastMovement;
+  bool isTap = false,isDrag = false;
+  List<Sprite> spaceRocketSprite;
+  double spaceRocketSpriteIndex = 0;
+  bool isDead=false;
+
   
 
-  SpaceRocket({this.game,double xInitialPos,double yInitialPos}){
+  SpaceRocket(this.game);
     
-      spaceRect = Rect.fromLTWH(xInitialPos, yInitialPos, game.tileSize, game.tileSize);
-      spacePaint = Paint();
-      spacePaint.color = Color(0xff6ab04c);
+      // spaceRect = Rect.fromLTWH(xInitialPos, yInitialPos, 20,60);
     
-  }
+      // spacePaint = Paint();
+      // spacePaint.color = Color(0xff6ab04c);
+    
+  
 
   void render(Canvas canvas){
-      canvas.drawRect(spaceRect, spacePaint);
+      spaceRocketSprite[spaceRocketSpriteIndex.toInt()].renderRect(canvas, spaceRect.inflate(2));
+
+      
+      
   }
 
   void update(double timeDelta){
+
+    if(isDead){
+
+    }else{
+      spaceRocketSpriteIndex +=10 * timeDelta;
+      if(spaceRocketSpriteIndex >= 8){
+        spaceRocketSpriteIndex -=8;
+      }
+    }
+
     if(isTap){
       spaceRect = spaceRect.translate(0, game.tileSize * -24 * timeDelta );
+      
       isTap = false;
       
     }
-    
     if(isDrag){
-  lastMovement = game.positionX;
-
+ 
       spaceRect = spaceRect.translate(0, game.positionY.floor()*1 *timeDelta );
       
-      if(game.positionX < (game.screenSize.width/2)){
-           spaceRect = spaceRect.translate((-game.tileSize)*3 *timeDelta, game.tileSize * -24 * timeDelta );
+      if(game.positionX < game.tapPosition){
+            
+           spaceRect = spaceRect.translate((-game.tileSize)*3 *timeDelta, game.tileSize * -16 * timeDelta);
       }else{
-        spaceRect = spaceRect.translate((game.tileSize)*3 *timeDelta, game.tileSize * -24 * timeDelta );
+        spaceRect = spaceRect.translate((game.tileSize)*3 *timeDelta, game.tileSize * -16 * timeDelta );
       }
 
-   
       isDrag = false;
-        lastMovement = game.positionX;
-        print("last movement $lastMovement");
-
     }
 
-
     if(!isDrag){
-       spaceRect = spaceRect.translate(0, game.tileSize * 1 * timeDelta );
+       spaceRect = spaceRect.translate(0, game.tileSize * 2 * timeDelta );
     }
     
 
