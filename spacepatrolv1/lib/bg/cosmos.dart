@@ -9,7 +9,7 @@ class Cosmos {
   Rect bgRect;
 
   Cosmos(this.game) {
-    bgSprite = Sprite('');
+    bgSprite = Sprite('bg/spacebg.jpg');
     bgRect = Rect.fromLTWH(
       0,
       game.screenSize.height - (game.tileSize * 23),

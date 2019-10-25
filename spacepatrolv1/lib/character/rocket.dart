@@ -1,12 +1,14 @@
 
 import 'dart:ui';
 
+import 'package:flame/components/component.dart';
 import 'package:flame/sprite.dart';
 import 'package:spacepatrolv1/character/spacerocket.dart';
 import 'package:spacepatrolv1/spacepatrolgame.dart';
 
 class Rocket extends SpaceRocket{
    double get speed => game.tileSize * 3;
+   
   Rocket(SpacePatrolGame game,double x,double y) : super(game){
       spaceRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);
       spaceRocketSprite = List();
@@ -18,6 +20,7 @@ class Rocket extends SpaceRocket{
       spaceRocketSprite.add(Sprite('spacerocket/space-rocket-6.png'));
       spaceRocketSprite.add(Sprite('spacerocket/space-rocket-7.png'));
       spaceRocketSprite.add(Sprite('spacerocket/space-rocket-8.png'));
+      
   }
 
 }

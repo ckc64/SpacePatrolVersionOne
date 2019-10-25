@@ -18,7 +18,13 @@ void main() async {
     'spacerocket/space-rocket-5.png',
     'spacerocket/space-rocket-6.png',
     'spacerocket/space-rocket-7.png',
-    'spacerocket/space-rocket-8.png'
+    'spacerocket/space-rocket-8.png',
+    'bg/spacebg.jpg',
+    'meteors/meteor-1.png',
+    'meteors/meteor-2.png',
+    'meteors/meteor-3.png',
+    'meteors/meteor-4.png',
+    'meteors/meteor-5.png',
   ]);
 
   SpacePatrolGame spg = SpacePatrolGame();
