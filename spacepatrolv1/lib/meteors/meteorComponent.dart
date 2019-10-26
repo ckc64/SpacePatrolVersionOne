@@ -6,7 +6,7 @@ import 'package:spacepatrolv1/meteors/meteor.dart';
 import 'package:spacepatrolv1/spacepatrolgame.dart';
 
 class MeteorCompOne extends MeteorRocket{
-   double get speed => game.tileSize * 3;
+
  
   MeteorCompOne(SpacePatrolGame game,double x,double y) : super(game){
      meteorRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);
@@ -17,7 +17,7 @@ class MeteorCompOne extends MeteorRocket{
 }
 
 class MeteorCompTwo extends MeteorRocket{
-   double get speed => game.tileSize * 3;
+
  
   MeteorCompTwo(SpacePatrolGame game,double x,double y) : super(game){
      meteorRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);
@@ -28,7 +28,7 @@ class MeteorCompTwo extends MeteorRocket{
 }
 
 class MeteorCompThree extends MeteorRocket{
-   double get speed => game.tileSize * 3;
+ 
  
   MeteorCompThree(SpacePatrolGame game,double x,double y) : super(game){
      meteorRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);
@@ -39,7 +39,7 @@ class MeteorCompThree extends MeteorRocket{
 }
 
 class MeteorCompFour extends MeteorRocket{
-   double get speed => game.tileSize * 3;
+
  
   MeteorCompFour(SpacePatrolGame game,double x,double y) : super(game){
      meteorRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);
@@ -50,7 +50,7 @@ class MeteorCompFour extends MeteorRocket{
 }
 
 class MeteorCompFive extends MeteorRocket{
-   double get speed => game.tileSize * 3;
+
  
   MeteorCompFive(SpacePatrolGame game,double x,double y) : super(game){
      meteorRect = Rect.fromLTWH(x, y, game.tileSize * 1.5, game.tileSize * 1.5);

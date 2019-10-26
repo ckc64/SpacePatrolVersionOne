@@ -12,9 +12,12 @@ class MeteorRocket{
   bool isDead=false;
   List<Sprite>meteorSprite;
 double meteorRocketSpriteIndex = 0;
-  
+  Offset meteorLeft;
+
 
   MeteorRocket(this.game);
+    
+  
 
   void render(Canvas canvas){
         meteorSprite[meteorRocketSpriteIndex.toInt()].renderRect(canvas, meteorRect.inflate(6));
@@ -23,8 +26,6 @@ double meteorRocketSpriteIndex = 0;
   void update(double timeDelta){
     checkIfOffScreen();
       meteorRect = meteorRect.translate(0, game.tileSize * 1.5 * timeDelta );
-   
-     
   }
 
   void checkIfOffScreen(){

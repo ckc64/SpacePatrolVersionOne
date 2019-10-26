@@ -26,8 +26,9 @@ double tapPosition;
 Random rnd;
 MeteorSpawner meteorSpawner;
 Cosmos bg;
-
-
+MeteorRocket meteor;
+SpaceRocket spaceR;
+double randomXpos;
   SpacePatrolGame(){
       initialize();
   }
@@ -35,6 +36,8 @@ Cosmos bg;
   void initialize() async{
     spaceRocket = List<SpaceRocket>();
     meteorRocket = List<MeteorRocket>();
+    meteor = MeteorRocket(this);
+    spaceR = SpaceRocket(this,meteor);
     rnd = Random();
     resize(await Flame.util.initialDimensions());
         tapPosition = (screenSize.width / 2)-25;
@@ -42,6 +45,7 @@ Cosmos bg;
     spawnRocket();
     meteorSpawner = MeteorSpawner(this);
     this.meteorSpawner.start();
+     randomXpos = rnd.nextDouble() * (screenSize.width - (tileSize * 2.025));
   
   }
 double initPositionX,initPositionY;
@@ -52,10 +56,10 @@ double initPositionX,initPositionY;
     // ));
     initPositionX = (screenSize.width / 2)-25;
     initPositionY = (screenSize.height / 2);
-    spaceRocket.add(Rocket(this, initPositionX,  initPositionY ));
+    spaceRocket.add(Rocket(this, initPositionX,  initPositionY,meteor));
   }
   void spawnMeteor(){
-    double randomXpos = rnd.nextDouble() * (screenSize.width - (tileSize * 2.025));
+    randomXpos = rnd.nextDouble() * (screenSize.width - (tileSize * 2.025));
     switch(rnd.nextInt(5)){
 
       case 0:
@@ -125,8 +129,13 @@ double initPositionX,initPositionY;
           positionX = details.globalPosition.dx;
           positionY = details.globalPosition.dy;
             spaceRocket.onDown();
+
+      
         }
+    
       });
+
+      
       print("Drag Position X ${positionX.floor()}");
       //print(positionY);
      
