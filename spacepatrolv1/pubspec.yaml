@@ -31,6 +31,7 @@ flutter:
    - assets/images/bg/
    - assets/images/meteors/
    - assets/images/planets/
+   - assets/images/ui/
 
   # fonts:
   #   - family: Schyler

@@ -25,6 +25,16 @@ void main() async {
     'meteors/meteor-3.png',
     'meteors/meteor-4.png',
     'meteors/meteor-5.png',
+    'planets/planet-1.png',
+    'planets/planet-2.png',
+    'planets/planet-3.png',
+    'planets/planet-4.png',
+    'planets/planet-5.png',
+    'ui/how-to-play-gui.png',
+    'ui/play-again-gui.png',
+    'ui/play-gui.png',
+    'ui/quit-gui.png',
+    'ui/space-title.png'
   ]);
 
   SpacePatrolGame spg = SpacePatrolGame();

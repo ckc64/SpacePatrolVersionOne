@@ -8,11 +8,9 @@ class MeteorRocket{
   Rect meteorRect;
   Paint meteorPaint;
   final SpacePatrolGame game;
-  bool isTap = false,isDrag = false;
   bool isDead=false;
   List<Sprite>meteorSprite;
 double meteorRocketSpriteIndex = 0;
-  Offset meteorLeft;
 
 
   MeteorRocket(this.game);
@@ -20,7 +18,7 @@ double meteorRocketSpriteIndex = 0;
   
 
   void render(Canvas canvas){
-        meteorSprite[meteorRocketSpriteIndex.toInt()].renderRect(canvas, meteorRect.inflate(6));
+        meteorSprite[meteorRocketSpriteIndex.toInt()].renderRect(canvas, meteorRect.inflate(3));
   }
 
   void update(double timeDelta){
